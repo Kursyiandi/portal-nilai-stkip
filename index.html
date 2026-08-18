@@ -378,11 +378,14 @@
 
 const CONFIG = {
   apiUrl: 'https://stephany-placid-shudderingly.ngrok-free.dev/portal-nilai/proxy.php', 
-
 };
 
-
-
+// Fungsi ini yang tadi tidak sengaja terhapus:
+function showStatus(msg, type) {
+  const el = document.getElementById('status-msg');
+  el.className = 'status-msg ' + type;
+  el.innerHTML = msg;
+}
 
 async function apiCall(act, params) {
   const tokenRes = await fetch(CONFIG.apiUrl, {
