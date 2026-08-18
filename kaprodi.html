@@ -103,12 +103,58 @@
   
   .status { margin-top: 15px; font-weight: bold; color: var(--green); text-align: center; }
   .error { color: var(--red); }
+  /* ==========================================
+     RESPONSIVE MOBILE VIEW (Khusus Layar HP)
+     ========================================== */
+  @media (max-width: 768px) {
+    /* Merapikan Header & Padding Utama */
+    header { flex-direction: column; align-items: stretch; gap: 12px; }
+    #user-info { display: flex !important; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
+    #user-info button { margin: 0 !important; width: auto; font-size: 12px; padding: 6px 14px; }
+    main { padding: 0 15px; margin: 20px auto; }
+    .card { padding: 20px; }
+
+    /* Merapikan Kotak Summary agar tersusun ke bawah */
+    .summary-cards { flex-direction: column; gap: 15px; }
+
+    /* Mematikan kolom Kiri-Kanan pada Dashboard */
+    .dashboard-layout { flex-direction: column; }
+    
+    /* Mengubah Panel Kanan menjadi Pop-up dari bawah (Bottom Sheet) */
+    .side-panel {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      top: auto;
+      max-height: 85vh;
+      border-radius: 20px 20px 0 0;
+      z-index: 9999;
+      box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+      
+      /* Animasi geser dari bawah */
+      transform: translateY(100%);
+      opacity: 1; /* Mengganti sistem opacity desktop */
+      visibility: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Trigger saat tombol 'Lihat' diklik di HP */
+    .side-panel.show {
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    /* Memastikan tabel bisa di-scroll ke kanan/kiri di layar sempit */
+    .table-container { max-height: 400px; }
+    table th, table td { white-space: nowrap; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Portal Kaprodi STKIP</h1>
+  <h1>STKIP Ahlussunnah</h1>
   <div id="user-info" style="display:none; font-size: 14px;">
     <span id="label-prodi-header"></span> 
     <button onclick="logout()" style="margin-left:15px; padding:6px 16px; background: var(--red); color: white; border: none; border-radius: 6px; cursor:pointer; font-weight:bold;">Keluar</button>
