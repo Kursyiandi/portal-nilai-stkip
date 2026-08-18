@@ -106,47 +106,47 @@
   /* ==========================================
      RESPONSIVE MOBILE VIEW (Khusus Layar HP)
      ========================================== */
+  /* ==========================================
+     RESPONSIVE MOBILE VIEW (Khusus Layar HP)
+     ========================================== */
   @media (max-width: 768px) {
-    /* Merapikan Header & Padding Utama */
+    /* 1. JURUS KUNCI: Mencegah layar HP bergeser ke samping (bocor) */
+    html, body { overflow-x: hidden; width: 100%; }
+    
+    /* 2. Merapikan Header & Tombol Keluar (Sejajar & Mentok Kanan) */
     header { flex-direction: column; align-items: stretch; gap: 12px; }
     #user-info { display: flex !important; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
-    #user-info button { margin: 0 !important; width: auto; font-size: 12px; padding: 6px 14px; }
-    main { padding: 0 15px; margin: 20px auto; }
+    #user-info button { margin: 0 !important; margin-left: auto !important; width: auto; font-size: 12px; padding: 6px 14px; }
+    
+    /* 3. Merapikan Area Utama */
+    main { padding: 0 15px; margin: 20px auto; width: 100%; overflow-x: hidden; }
     .card { padding: 20px; }
 
-    /* Merapikan Kotak Summary agar tersusun ke bawah */
+    /* 4. Merapikan Kotak Summary agar tersusun ke bawah */
     .summary-cards { flex-direction: column; gap: 15px; }
 
-    /* Mematikan kolom Kiri-Kanan pada Dashboard */
-    .dashboard-layout { flex-direction: column; }
+    /* 5. Mematikan kolom Kiri-Kanan pada Dashboard */
+    .dashboard-layout { flex-direction: column; width: 100%; }
+    .left-column { width: 100%; max-width: 100%; min-width: 0; }
     
-    /* Mengubah Panel Kanan menjadi Pop-up dari bawah (Bottom Sheet) */
+    /* 6. Mengubah Panel Kanan menjadi Pop-up dari bawah (Bottom Sheet) */
     .side-panel {
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      top: auto;
-      max-height: 85vh;
-      border-radius: 20px 20px 0 0;
-      z-index: 9999;
+      width: 100%; position: fixed; bottom: 0; left: 0; top: auto;
+      max-height: 85vh; border-radius: 20px 20px 0 0; z-index: 9999;
       box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
-      
-      /* Animasi geser dari bawah */
-      transform: translateY(100%);
-      opacity: 1; /* Mengganti sistem opacity desktop */
-      visibility: hidden;
+      transform: translateY(100%); opacity: 1; visibility: hidden;
       transition: transform 0.3s ease-in-out;
     }
+    .side-panel.show { visibility: visible; transform: translateY(0); }
     
-    /* Trigger saat tombol 'Lihat' diklik di HP */
-    .side-panel.show {
-      visibility: visible;
-      transform: translateY(0);
+    /* 7. Memastikan TABEL TUNDUK PADA KOTAKNYA */
+    .table-container { 
+      max-height: 400px; 
+      width: 100%; 
+      max-width: 100%;
+      overflow-x: auto; 
+      -webkit-overflow-scrolling: touch; /* Efek geser mulus di HP */
     }
-    
-    /* Memastikan tabel bisa di-scroll ke kanan/kiri di layar sempit */
-    .table-container { max-height: 400px; width: 100%; overflow-x: auto; }
     table th, table td { white-space: nowrap; }
   }
 </style>
