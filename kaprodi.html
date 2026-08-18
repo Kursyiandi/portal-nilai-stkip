@@ -115,7 +115,7 @@
     
     /* 2. Merapikan Header & Tombol Keluar (Sejajar & Mentok Kanan) */
     header { flex-direction: column; align-items: stretch; gap: 12px; }
-    #user-info { display: flex !important; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
+    #user-info { display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
     #user-info button { margin: 0 !important; margin-left: auto !important; width: auto; font-size: 12px; padding: 6px 14px; }
     
     /* 3. Merapikan Area Utama */
@@ -297,7 +297,7 @@ function terapkanSesiLogin() {
   activeProdiName = sessionStorage.getItem('prodiName');
   document.getElementById('login-section').style.display = 'none';
   document.getElementById('dashboard-section').style.display = 'block';
-  document.getElementById('user-info').style.display = 'block';
+  document.getElementById('user-info').style.display = 'flex';
   document.getElementById('label-prodi-header').innerHTML = `Kaprodi: <strong>${activeProdiName}</strong>`;
   document.getElementById('label-prodi-dash').innerHTML = `Program Studi: <strong>${activeProdiName}</strong> | Semester: <strong>Genap 2025/2026</strong>`;
   tarikDataBermasalah();
