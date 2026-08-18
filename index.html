@@ -216,6 +216,31 @@
     border-radius: 50%; animation: spin 0.7s linear infinite;
     vertical-align: middle; margin-right: 8px;
   }
+  /* Tombol Akses Kaprodi di Header */
+  .btn-login-kaprodi {
+    margin-left: auto; /* Mendorong tombol ke ujung kanan */
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-login-kaprodi:hover {
+    background: var(--white);
+    color: var(--green-dark);
+  }
+  
+  /* Sembunyikan tombol saat KHS dicetak */
+  @media print {
+    .btn-login-kaprodi { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -229,8 +254,13 @@
     <img src="logo.png" alt="Logo STKIP" class="logo-web">
     <div class="header-text">
       <h1>Portal Nilai Mahasiswa</h1>
-      <p>STKIP Ahlussunnah &nbsp;·&nbsp; Sistem Informasi Akademik</p>
+      <p>STKIP Ahlussunnah Bukittinggi &nbsp;·&nbsp; Sistem Informasi Akademik</p>
     </div>
+    
+    <!-- Tombol Akses Kaprodi -->
+    <a href="kaprodi.html" class="btn-login-kaprodi">
+      Akses Kaprodi
+    </a>
   </div>
 </header>
 <!-- Ubah baris ini -->
